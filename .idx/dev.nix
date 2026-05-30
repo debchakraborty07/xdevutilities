@@ -9,6 +9,7 @@
     pkgs.yarn
     pkgs.nodePackages.pnpm
     pkgs.bun
+    pkgs.python311 
   ];
   # Sets environment variables in the workspace
   env = {};
