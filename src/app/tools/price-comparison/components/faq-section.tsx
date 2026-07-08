@@ -51,6 +51,22 @@ export default function FAQSection() {
           Your data is safe: All price and quantity inputs are processed locally in your browser and are never stored.
         </p>
       </div>
+
+      {/* গুগলের জন্য SEO FAQ Schema (JSON-LD) */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(faq => ({
+              "@type": "Question",
+              "name": faq.q,
+              "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+            }))
+          })
+        }}
+      />
     </div>
   );
 }

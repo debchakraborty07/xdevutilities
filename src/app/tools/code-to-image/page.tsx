@@ -1,20 +1,12 @@
 // src/app/tools/code-to-image/page.tsx
 
-"use client";
-
-import dynamic from "next/dynamic"; 
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import UsageGuide from "./components/usage-guide";
 import FAQSection from "./components/faq-section";
 import RelatedSidebar from "@/components/shared/related-sidebar";
 import SaveToolButton from "@/components/shared/save-tool-button";
-
-// CodeGenerator কে dynamic ভাবে ইম্পোর্ট করা হলো যেন এটি সার্ভারে রান না করে
-const CodeGenerator = dynamic(() => import("./components/code-generator"), { 
-  ssr: false,
-  loading: () => <div className="h-[500px] w-full bg-background text-foreground animate-pulse rounded-3xl" />
-});
+import CodeGeneratorWrapper from "./components/code-generator-wrapper";
 
 export default function CodeToImagePage() {
   return (
@@ -43,7 +35,7 @@ export default function CodeToImagePage() {
       <div className="flex flex-col lg:flex-row gap-16 xl:gap-24 items-start">
         <div className="flex-1 w-full min-w-0">
           <section className="mb-24">
-            <CodeGenerator />
+            <CodeGeneratorWrapper />
           </section>
 
           <div className="max-w-4xl space-y-24 border-t border-slate-100 dark:border-slate-800 pt-24">

@@ -66,7 +66,7 @@ export default function BlogPost() {
         
         {/* Internal Link to Other Blogs */}
         <div className="pt-10 border-t border-border mt-10">
-          <p className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-4">Read Next</p>
+          <p className="text-sm font-bold text-slate-400   mb-4">Read Next</p>
           <Link href="/blog/ats-resume-scanner-guide" className="text-xl font-semibold text-blue-500 hover:underline">
             Outsmart the ATS Robot Recruiters: The Ultimate Guide →
           </Link>

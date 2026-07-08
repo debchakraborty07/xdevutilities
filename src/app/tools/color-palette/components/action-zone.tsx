@@ -38,7 +38,7 @@ export default function ActionZone({ image, setImage, loading, onProcess }: any)
               <input type="file" className="hidden" onChange={handleUpload} accept="image/*" />
               <span className="text-xs text-muted-foreground mt-1 block">to extract color palette</span>
             </label>
-            <p className="text-[10px] text-muted-foreground/60 uppercase font-bold tracking-tighter">JPG, PNG or WEBP (Max 5MB)</p>
+            <p className="text-[10px] text-muted-foreground/60  font-bold tracking-tighter">JPG, PNG or WEBP (Max 5MB)</p>
           </div>
         )}
       </div>

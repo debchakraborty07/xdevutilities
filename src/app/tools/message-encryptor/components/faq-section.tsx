@@ -34,7 +34,8 @@ export default function FAQSection() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {faqs.map((faq, index) => (
-          <div key={index} className="p-6 bg-background text-foregroundborder border-border rounded-2xl space-y-2">
+          /* এখানে টাইপো সংশোধন করে text-foreground border করা হয়েছে */
+          <div key={index} className="p-6 bg-background text-foreground border border-border rounded-2xl space-y-2">
             <h3 className="text-sm font-semibold text-foreground dark:text-slate-100">
               {faq.q}
             </h3>
@@ -51,6 +52,22 @@ export default function FAQSection() {
           Tip: For maximum security, use a passphrase that includes numbers, symbols, and is at least 12 characters long.
         </p>
       </div>
+
+      {/* গুগলের জন্য SEO FAQ Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(faq => ({
+              "@type": "Question",
+              "name": faq.q,
+              "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+            }))
+          })
+        }}
+      />
     </div>
   );
 }

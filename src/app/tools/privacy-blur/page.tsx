@@ -1,19 +1,24 @@
 // src/app/tools/privacy-blur/page.tsx
 
-"use client";
-import { useState } from "react";
+import React from "react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
-import BlurCanvas from "./components/blur-canvas";
-import UsageGuide from "./components/usage-guide";
-import FAQSection from "./components/faq-section";
 import RelatedSidebar from "@/components/shared/related-sidebar";
 import SaveToolButton from "@/components/shared/save-tool-button";
+import BlurWrapper from "./components/blur-wrapper";
+import UsageGuide from "./components/usage-guide";
+import FAQSection from "./components/faq-section";
 
+export const metadata: Metadata = {
+  title: "Secure Privacy Blur & Image Redactor | Mask Info | xdevutilities",
+  description: "Redact sensitive details, faces, and text from your images instantly. 100% secure client-side browser image blurring and pixelation tool.",
+  alternates: {
+    canonical: "https://www.xdevutilities.com/tools/privacy-blur",
+  },
+};
 
 export default function PrivacyBlurPage() {
-  const [image, setImage] = useState<string | null>(null);
-
   return (
     <div className="container mx-auto px-6 py-12 max-w-[1400px]">
       <div className="mb-12">
@@ -39,10 +44,11 @@ export default function PrivacyBlurPage() {
       <div className="flex flex-col lg:flex-row gap-16 xl:gap-24 items-start">
         <div className="flex-1 w-full min-w-0">
           <section className="mb-24">
-            {/* মেইন ইন্টারেক্টিভ ক্যানভাস */}
-            <BlurCanvas image={image} setImage={setImage} />
+            {/* dynamic ক্লায়েন্ট লেআউট */}
+            <BlurWrapper />
           </section>
 
+          {/* এই টেক্সট কনটেন্ট অংশটি এখন সরাসরি সার্ভার থেকে HTML হিসেবে রেন্ডার হয়ে গুগল বটের কাছে যাবে */}
           <div className="max-w-4xl space-y-24 border-t border-slate-100 dark:border-slate-800 pt-24">
             <UsageGuide />
             <FAQSection />

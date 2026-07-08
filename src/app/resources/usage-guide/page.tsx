@@ -1,11 +1,12 @@
 // src/app/resources/usage-guide/page.tsx
 
+import React from "react";
 import { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Usage Guide | How to use xdevutilities",
-  description: "Learn how to master xdevutilities with our step-by-step guide for ATS resume scanning, passport photo making, and more.",
+  title: "Usage Guide | How to use xdevutilities Tools",
+  description: "Learn how to master xdevutilities with our detailed, step-by-step guidelines for resume scanning, secure encryption, photo resizing, and more.",
   alternates: {
     canonical: 'https://www.xdevutilities.com/resources/usage-guide',
   },
@@ -34,7 +35,7 @@ export default function UsageGuidePage() {
         </section>
 
         {/* Section 2: Passport Photo */}
-        <section className="space-y-4">
+        <section className="space-y-4 border-t border-slate-100 dark:border-slate-800 pt-12">
           <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-200">
             Generating Perfect <Link href="/tools/passport-photo" className="text-blue-500 underline">Passport Photos</Link>
           </h2>
@@ -93,7 +94,82 @@ export default function UsageGuidePage() {
           </ul>
         </section>
 
-        {/* Section 6: Troubleshooting */}
+        {/* Section 6: Code to Image */}
+        <section className="space-y-4 border-t border-slate-100 dark:border-slate-800 pt-12">
+          <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-200">
+            Aesthetic Coding snapshots with <Link href="/tools/code-to-image" className="text-blue-500 underline">Code to Image</Link>
+          </h2>
+          <p className="text-[15px] text-muted-foreground dark:text-slate-400 leading-relaxed">
+            Present your source code beautifully for newsletters, blogs, or social media updates.
+          </p>
+          <ul className="list-disc pl-6 text-sm text-muted-foreground space-y-3">
+            <li><strong>Language Highlighting:</strong> Paste your snippet and select the exact compiler language (JavaScript, Python, TypeScript, etc.) to apply proper color highlights.</li>
+            <li><strong>Themes & Contrast:</strong> Cycle through modern gradients or standard minimal backdrops. High-contrast colors stand out best on white timelines.</li>
+            <li><strong>Pixel Precision:</strong> Export in 3x high-resolution to ensure the text remains extremely crisp when zoomed in on Retina displays.</li>
+          </ul>
+        </section>
+
+        {/* Section 7: Message Encryptor */}
+        <section className="space-y-4 border-t border-slate-100 dark:border-slate-800 pt-12">
+          <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-200">
+            Symmetric Security with <Link href="/tools/message-encryptor" className="text-blue-500 underline">Private Message Encryptor</Link>
+          </h2>
+          <p className="text-[15px] text-muted-foreground dark:text-slate-400 leading-relaxed">
+            Safely encrypt sensitive passwords, logs, or API keys directly in your browser memory before sending them online.
+          </p>
+          <ul className="list-disc pl-6 text-sm text-muted-foreground space-y-3">
+            <li><strong>Local Handshake:</strong> Enter your secret note and create a unique passphrase. Because we do not store keys, if you lose this passphrase, your note is permanently locked.</li>
+            <li><strong>Ciphertext Sharing:</strong> Hit &apos;Encrypt&apos; and copy the alphanumeric code block. Share it over any messaging app or email without security concerns.</li>
+            <li><strong>Recipient Decryption:</strong> Your recipient can paste the code block, input the shared passphrase, and unlock the original plaintext instantly.</li>
+          </ul>
+        </section>
+
+        {/* Section 8: Price Comparison */}
+        <section className="space-y-4 border-t border-slate-100 dark:border-slate-800 pt-12">
+          <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-200">
+            Smart Budget Auditing with the <Link href="/tools/price-comparison" className="text-blue-500 underline">Fair Price Estimator</Link>
+          </h2>
+          <p className="text-[15px] text-muted-foreground dark:text-slate-400 leading-relaxed">
+            Eliminate mental math and merchant markup by calculating exact fair pricing for irregular quantities of goods.
+          </p>
+          <ul className="list-disc pl-6 text-sm text-muted-foreground space-y-3">
+            <li><strong>Standard Reference:</strong> Input the standard price and standard quantity of an item (for example, the price of a full 1kg box).</li>
+            <li><strong>Actual Purchase:</strong> Enter the exact fractional weight, volume, or pieces you are buying (for example, a loose portion of 350g).</li>
+            <li><strong>Markup Verdict:</strong> Provide the seller&apos;s asking price to instantly calculate if you are being overcharged or saved.</li>
+          </ul>
+        </section>
+
+        {/* Section 9: Privacy Blur */}
+        <section className="space-y-4 border-t border-slate-100 dark:border-slate-800 pt-12">
+          <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-200">
+            Masking Data with the <Link href="/tools/privacy-blur" className="text-blue-500 underline">Privacy Blur Redactor</Link>
+          </h2>
+          <p className="text-[15px] text-muted-foreground dark:text-slate-400 leading-relaxed">
+            Securely redact confidential parameters (like account numbers or faces) from screenshots before sharing them online.
+          </p>
+          <ul className="list-disc pl-6 text-sm text-muted-foreground space-y-3">
+            <li><strong>Interactive Canvas:</strong> Upload your file and click-and-drag over the regions you want to obscure.</li>
+            <li><strong>Dual Redaction:</strong> Use dynamic Gaussian &quot;Blur&quot; for professional aesthetics or solid &quot;Blackout&quot; boxes to remove highly sensitive metrics.</li>
+            <li><strong>Mathematical Overwrite:</strong> The original pixels under the mask are overwritten locally on the canvas, meaning the data is mathematically irrecoverable after exporting.</li>
+          </ul>
+        </section>
+
+        {/* Section 10: Safe Zone Checker */}
+        <section className="space-y-4 border-t border-slate-100 dark:border-slate-800 pt-12">
+          <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-200">
+            Responsive Mocking with the <Link href="/tools/safe-zone-checker" className="text-blue-500 underline">Safe Zone Checker</Link>
+          </h2>
+          <p className="text-[15px] text-muted-foreground dark:text-slate-400 leading-relaxed">
+            Test custom banner graphics and cover art against dynamic boundaries across social network interfaces.
+          </p>
+          <ul className="list-disc pl-6 text-sm text-muted-foreground space-y-3">
+            <li><strong>Platform Loading:</strong> Upload your cover art and select the targeted channel (such as LinkedIn, X, or YouTube).</li>
+            <li><strong>Viewport Calibration:</strong> Toggle between mobile and desktop viewport masks to check if the margins cut off your focal graphics.</li>
+            <li><strong>Profile Placement:</strong> Avoid placing logos on the bottom-left edges, where dynamic circular avatars overlap and cover the background.</li>
+          </ul>
+        </section>
+
+        {/* Section 11: Troubleshooting */}
         <section className="space-y-4 bg-background text-foreground p-8 rounded-3xl border border-slate-100 dark:border-slate-800">
           <h2 className="text-xl font-bold text-slate-800 dark:text-slate-200">Common Troubleshooting</h2>
           <p className="text-[14px] text-muted-foreground dark:text-slate-400 leading-relaxed italic">

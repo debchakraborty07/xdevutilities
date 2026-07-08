@@ -11,13 +11,13 @@ export default function ResultPreview({ colors }: { colors: string[] }) {
   const copyToClipboard = (color: string, index: number) => {
     navigator.clipboard.writeText(color);
     setCopiedIndex(index);
-    toast.success(`Hex code ${color.toUpperCase()} copied!`);
+    toast.success(`Hex code ${color.to()} copied!`);
     setTimeout(() => setCopiedIndex(null), 2000);
   };
 
   return (
     <div className="bg-card text-card-foreground rounded-[32px] p-10 flex flex-col relative min-h-[400px] border border-border shadow-sm">
-      <div className="absolute top-6 left-6 text-[10px] font-bold text-muted-foreground uppercase tracking-widest">
+      <div className="absolute top-6 left-6 text-[10px] font-bold text-muted-foreground  ">
         Extracted Palette
       </div>
       
@@ -34,7 +34,7 @@ export default function ResultPreview({ colors }: { colors: string[] }) {
                   className="w-12 h-12 rounded-xl shadow-md border border-border/50 transition-transform group-hover:scale-105" 
                   style={{ backgroundColor: color }} 
                 />
-                <span className="font-mono text-foreground font-bold tracking-wider">{color.toUpperCase()}</span>
+                <span className="font-mono text-foreground font-bold tracking-wider">{color.to()}</span>
               </div>
               <div className="text-muted-foreground group-hover:text-foreground transition-colors">
                 {copiedIndex === index ? <Check size={18} className="text-emerald-500" /> : <Copy size={18} />}

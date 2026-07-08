@@ -64,13 +64,21 @@ export default function ActionZone() {
       <div className="grid grid-cols-2 p-1 bg-background text-foreground border border-border rounded-2xl">
         <button
           onClick={() => { setMode("encrypt"); setResult(""); setInput(""); }}
-          className={`flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-medium transition-all ${mode === "encrypt" ? "shadow-sm bg-background text-foreground" : "text-muted-foreground"}`}
+          className={`flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-medium transition-all ${
+            mode === "encrypt" 
+              ? "shadow-sm bg-background text-foreground" 
+              : "text-muted-foreground"
+          }`}
         >
           <Lock size={16} /> Encrypt
         </button>
         <button
           onClick={() => { setMode("decrypt"); setResult(""); setInput(""); }}
-          className={`flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-medium transition-all ${mode === "decrypt" ? "bg-background text-foreground shadow-sm " : "text-muted-foreground"}`}
+          className={`flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-medium transition-all ${
+            mode === "decrypt" 
+              ? "bg-background text-foreground shadow-sm" 
+              : "text-muted-foreground"
+          }`}
         >
           <Unlock size={16} /> Decrypt
         </button>
@@ -100,7 +108,8 @@ export default function ActionZone() {
               value={secretKey}
               onChange={(e) => setSecretKey(e.target.value)}
               placeholder="Enter your secret key"
-              className="w-full pl-11 pr-5 py-4bg-background text-foreground border border-border rounded-2xl outline-none focus:ring-4 focus:ring-blue-500/5 transition-all text-sm font-medium"
+              /* এখানে টাইপো সংশোধন করে py-4 bg-background করা হয়েছে */
+              className="w-full pl-11 pr-5 py-4 bg-background text-foreground border border-border rounded-2xl outline-none focus:ring-4 focus:ring-blue-500/5 transition-all text-sm font-medium"
             />
           </div>
         </div>

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 
+// আপনার ১০টি ব্লগের সম্পূর্ণ এবং সঠিক ডাটা অ্যারে
 const blogPosts = [
   {
     title: "The Hidden Risks of PDF Metadata",
@@ -16,17 +17,42 @@ const blogPosts = [
   {
     title: "Professional Passport Photos at Home",
     slug: "passport-photo-guide",
-    desc: "A 2026 guide to creating official identity photos effortlessly.",
+    desc: "A guide to creating compliant, visa-ready identity photos effortlessly.",
   },
   {
     title: "Building Professional Color Palettes",
     slug: "color-palette-theory",
-    desc: "Understanding color theory and extracting themes from images.",
+    desc: "Understanding color theory and extracting balanced themes from images.",
   },
   {
     title: "Visualizing SQL with Mermaid.js",
     slug: "sql-mermaid-visualization",
     desc: "How to document your database schemas visually and efficiently.",
+  },
+  {
+    title: "The Art of Code Sharing",
+    slug: "code-to-image-guide",
+    desc: "How to present your source code snippets beautifully for higher digital engagement.",
+  },
+  {
+    title: "The Zero-Knowledge Cryptography Vault",
+    slug: "message-encryption-guide",
+    desc: "How client-side AES-256 secure note locking protects your data offline.",
+  },
+  {
+    title: "The Smart Shopper's Secret to Unit Pricing",
+    slug: "price-comparison-guide",
+    desc: "How fair price estimations protect your budget against shrinkflation.",
+  },
+  {
+    title: "Beyond the Black Marker: Secure Image Redaction",
+    slug: "privacy-blur-guide",
+    desc: "Safely blur, pixelate, and permanently redact confidential details from screenshots.",
+  },
+  {
+    title: "Responsive Social Media Branding & Safe Zones",
+    slug: "safe-zone-checker-guide",
+    desc: "Optimize your cover banners against mobile cropping and circular overlaps.",
   },
 ];
 

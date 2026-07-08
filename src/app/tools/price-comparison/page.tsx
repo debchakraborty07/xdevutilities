@@ -1,20 +1,21 @@
 // src/app/tools/price-comparison/page.tsx
 
-import ActionZone from "./components/action-zone";
+import React from "react";
+import type { Metadata } from "next";
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
+import ComparisonWrapper from "./components/comparison-wrapper";
 import UsageGuide from "./components/usage-guide";
 import FAQSection from "./components/faq-section";
 import RelatedSidebar from "@/components/shared/related-sidebar";
 import SaveToolButton from "@/components/shared/save-tool-button";
-import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
 
-export const metadata = {
-  title: "Smart Fair Price Calculator | Grocery & Unit Cost ",
+export const metadata: Metadata = {
+  title: "Smart Fair Price Calculator | Grocery & Unit Cost | xdevutilities",
   description: "Calculate the exact fair price for any quantity based on a standard reference. Prevent being overcharged at the grocery store with our unit-aware estimation tool.",
   alternates: {
     canonical: 'https://www.xdevutilities.com/tools/price-comparison',
   },
-
 };
 
 export default function PriceComparisonPage() {
@@ -41,9 +42,11 @@ export default function PriceComparisonPage() {
       <div className="flex flex-col lg:flex-row gap-16 xl:gap-24 items-start">
         <div className="flex-1 w-full min-w-0">
           <section className="mb-24">
-            <ActionZone />
+            {/* dynamic ক্লায়েন্ট লেআউট */}
+            <ComparisonWrapper />
           </section>
 
+          {/* এই টেক্সট কনটেন্ট অংশটি এখন সরাসরি সার্ভার থেকে HTML হিসেবে গুগল বটের কাছে যাবে */}
           <div className="max-w-4xl space-y-24 border-t border-slate-100 dark:border-slate-800 pt-24">
             <UsageGuide />
             <FAQSection />

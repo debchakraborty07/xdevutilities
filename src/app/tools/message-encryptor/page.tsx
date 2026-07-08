@@ -1,21 +1,20 @@
 // src/app/tools/message-encryptor/page.tsx
 
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
-import ActionZone from "./components/action-zone";
 import UsageGuide from "./components/usage-guide";
 import FAQSection from "./components/faq-section";
 import RelatedSidebar from "@/components/shared/related-sidebar";
 import SaveToolButton from "@/components/shared/save-tool-button";
+import EncryptorWrapper from "./components/encryptor-wrapper";
 
-// Metadata শুধুমাত্র Server Component-এ থাকতে পারে (use client সরানো হয়েছে)
-export const metadata = {
-  title: "Private Message Encryptor | AES-256 Secure Notes ",
+export const metadata: Metadata = {
+  title: "Private Message Encryptor | AES-256 Secure Notes | xdevutilities",
   description: "Secure your sensitive text and private notes with industrial-grade AES-256 encryption. Fast, client-side, and completely private.",
   alternates: {
-    canonical: 'https://www.xdevutilities.com/tools/message-encryptor', // পেজের নিজস্ব পাথ
+    canonical: 'https://www.xdevutilities.com/tools/message-encryptor',
   },
-
 };
 
 export default function MessageEncryptorPage() {
@@ -47,10 +46,9 @@ export default function MessageEncryptorPage() {
 
       {/* Main Content Layout */}
       <div className="flex flex-col lg:flex-row gap-16 xl:gap-24 items-start">
-        
         <div className="flex-1 w-full min-w-0">
           <section className="mb-24 bg-card border border-border rounded-[2.5rem] p-6 sm:p-12 shadow-sm transition-all mobile-edge">
-            <ActionZone />
+            <EncryptorWrapper />
           </section>
 
           <div className="max-w-4xl space-y-24 border-t border-slate-100 dark:border-slate-800 pt-24">
@@ -62,7 +60,6 @@ export default function MessageEncryptorPage() {
         <aside className="hidden lg:block w-[300px] xl:w-[350px] shrink-0 sticky top-28">
           <RelatedSidebar currentToolId="message-encryptor" category="Privacy" />
         </aside>
-        
       </div>
       
       <div className="mt-12 pt-8 border-t border-border/40 text-center">

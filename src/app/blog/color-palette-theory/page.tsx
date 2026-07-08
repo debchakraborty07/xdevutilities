@@ -53,7 +53,7 @@ export default function ColorBlogPage() {
         </p>
         
         <div className="pt-10 border-t border-border mt-10">
-          <p className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-4">Read Next</p>
+          <p className="text-sm font-bold text-slate-400   mb-4">Read Next</p>
           <Link href="/blog/sql-mermaid-visualization" className="text-xl font-semibold text-blue-500 hover:underline">
             Visualizing Data: Converting SQL Schemas into Mermaid Diagrams →
           </Link>

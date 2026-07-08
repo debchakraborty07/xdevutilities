@@ -24,11 +24,8 @@ export default function MissionSection() {
             <p>
               Our philosophy is simple: <strong>Privacy by Default</strong>. Most online utilities process your sensitive data on their servers, often leaving a digital footprint behind. We changed the game by ensuring that 99% of our processing happens directly in your browser. Whether you are generating a secure password, analyzing code, or converting images, your data never leaves your device.
             </p>
-            {/* <p>
-              We are committed to building an ecosystem that is completely free of intrusive ads and bloated tracking scripts. Our mission is to empower developers, writers, and digital creators with high-performance tools that just work—no strings attached.
-            </p> */}
             <p>
-              We are committed to building an ecosystem that is easy to use, avoid complexity and easy to understand use case. We believe each and evry users will feel safe and comfortable using our tools.
+              We are committed to building an ecosystem that is easy to use, avoids complexity and is easy to understand. We believe each and every user will feel safe and comfortable using our tools.
             </p>
           </div>
         </div>
@@ -68,13 +65,6 @@ export default function MissionSection() {
         </div>
 
       </div>
-
-      {/* Bottom Subtle Signature
-      <div className="mt-20 pt-8 border-t border-border/40 text-center">
-         <p className="text-[11px] text-slate-400 font-medium opacity-50">
-           xdevutilities ecosystem • establishing trust since 2025
-         </p>
-      </div> */}
     </section>
   );
 }

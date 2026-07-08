@@ -24,7 +24,7 @@ export default function ResultDashboard({ results, jdProvided }: { results: any,
           <Zap size={120} />
         </div>
         <div className="relative z-10">
-          <p className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider mb-2">
+          <p className="text-[10px] font-semibold text-muted-foreground  tracking-wider mb-2">
             {jdProvided ? "ATS Matching Accuracy" : "Resume Strength Score"}
           </p>
           <div className="flex items-baseline gap-2">
@@ -43,7 +43,7 @@ export default function ResultDashboard({ results, jdProvided }: { results: any,
       {/* Smart Analysis Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div className="p-6 rounded-[2.5rem] bg-card text-card-foreground border border-border">
-          <h4 className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mb-5">Contact Validation</h4>
+          <h4 className="text-[10px] font-bold text-muted-foreground   mb-5">Contact Validation</h4>
           <div className="space-y-4">
             <StatusItem label="Email" found={results?.contact_info?.email_found}/>
             <StatusItem label="Phone" found={results?.contact_info?.phone_found} />
@@ -54,7 +54,7 @@ export default function ResultDashboard({ results, jdProvided }: { results: any,
 
         <div className="p-6 rounded-[2.5rem] bg-card text-card-foreground border border-border flex flex-col justify-between">
            <div>
-              <h4 className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mb-4">Content Quality</h4>
+              <h4 className="text-[10px] font-bold text-muted-foreground   mb-4">Content Quality</h4>
               <div className="space-y-3">
                  <div className="flex justify-between items-center">
                     <span className="text-xs text-muted-foreground">Word Count</span>
@@ -77,7 +77,7 @@ export default function ResultDashboard({ results, jdProvided }: { results: any,
       {/* Industry Suggestion & Keywords */}
       <div className="p-8 rounded-[2.5rem] bg-card text-card-foreground border border-border">
         <div className="flex items-center justify-between mb-6">
-          <h4 className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">Targeted Improvements</h4>
+          <h4 className="text-[10px] font-bold text-muted-foreground  ">Targeted Improvements</h4>
           <span className="px-3 py-1 bg-secondary text-secondary-foreground text-[9px] font-bold rounded-full">AI INSIGHTS</span>
         </div>
         
