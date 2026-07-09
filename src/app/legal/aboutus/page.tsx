@@ -1,10 +1,12 @@
 // src/app/legal/aboutus/page.tsx
 
+/* eslint-disable react/no-unescaped-entities */
+import React from "react";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About Us ",
-  description: "The story behind xdevutilities—why we build private, high-performance tools for the modern web.",
+  title: "About Us | Our Story & Philosophy | xdevutilities",
+  description: "Discover the story behind xdevutilities—why we build private, highly secure, and performance-driven web tools for modern creators.",
   alternates: {
     canonical: 'https://www.xdevutilities.com/legal/aboutus',
   },
@@ -12,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="container mx-auto px-6 py-20 max-w-4xl min-h-screen">
+    <div className="container mx-auto px-6 py-20 max-w-4xl min-h-screen text-foreground bg-background">
       <h1 className="text-4xl sm:text-5xl font-bold text-foreground dark:text-slate-100 mb-8 leading-tight">
         Building tools that respect <br /> <span className="text-blue-500">your privacy and your time.</span>
       </h1>
@@ -21,53 +23,53 @@ export default function AboutPage() {
         
         {/* The Problem Section */}
         <section className="space-y-4">
-          <h2 className="text-2xl font-semibold text-slate-800 dark:text-slate-200 border-l-4 border-blue-500 pl-4">Why xdevutilities exists</h2>
+          <h2 className="text-2xl font-semibold text-slate-800 dark:text-slate-200 border-l-4 border-blue-500 pl-4">Why xdevutilities Exists</h2>
           <p>
-            We&apos;ve all been there—searching for a simple tool to resize a photo or scan a resume, only to find websites cluttered with intrusive pop-ups, mandatory login screens, and heavy tracking scripts. Most of these &quot;free&quot; tools are actually harvesting your data behind the scenes. 
+            We&apos;ve all been there—searching for a simple tool to resize a photo or scan a resume, only to find websites cluttered with intrusive pop-ups, mandatory login walls, and heavy background tracking scripts. Unfortunately, many of these &quot;free&quot; utilities are silently harvesting and commercializing your metadata behind the scenes.
           </p>
           <p>
-            xdevutilities was born out of a simple frustration. We wanted to build a place where you can get your small daily tasks done without the fear of your documents being stored or your privacy being compromised.
+            xdevutilities was established to break this compromise. We wanted to build a secure, unified workspace where developers, writers, and digital creators can complete their small daily transactions quickly, without the ongoing anxiety of document logging or privacy violations.
           </p>
         </section>
 
         {/* Technical Philosophy Section */}
         <section className="space-y-4">
-          <h2 className="text-2xl font-semibold text-slate-800 dark:text-slate-200 border-l-4 border-blue-500 pl-4">Our &quot;Stateless&quot; Philosophy</h2>
+          <h2 className="text-2xl font-semibold text-slate-800 dark:text-slate-200 border-l-4 border-blue-500 pl-4">Our &quot;Stateless&quot; Security Model</h2>
           <p>
-            I am a developer who believes that minimalism is the ultimate sophistication. xdevutilities is built on a <strong>stateless architecture</strong>. This is a fancy way of saying that we do not have a persistent database for your files. 
+            We are an independent group of software engineers who believe that minimalism is the ultimate technical sophistication. xdevutilities is engineered strictly on a <strong>stateless processing model</strong>. 
           </p>
           <p>
-            When you use our tools, the processing happens in temporary memory. As soon as you close your browser tab, your data is gone forever from our system. We don&apos;t want your files; we just want to help you process them efficiently.
+            When you run tasks through our clients, all file parsing occurs inside temporary, volatile browser or server RAM. The moment you complete your download or terminate your browser session, all operational logs are immediately purged. We do not maintain historical storage systems for your uploaded materials.
           </p>
         </section>
 
         {/* Focus Section */}
         <section className="space-y-4">
-          <h2 className="text-2xl font-semibold text-slate-800 dark:text-slate-200 border-l-4 border-blue-500 pl-4">The &quot;No-Bloat&quot; Experience</h2>
+          <h2 className="text-2xl font-semibold text-slate-800 dark:text-slate-200 border-l-4 border-blue-500 pl-4">The &quot;No-Bloat&quot; Operational Standard</h2>
           <p>
-            Our mission is simple: <strong>Input, Process, Result.</strong> 
+            Our baseline objective is straightforward: <strong>Input, Process, Result.</strong>
           </p>
           <p>
-            Whether you are a developer visualizing an SQL schema or a student preparing a passport photo, our platform is designed to get you in and out as quickly as possible. We focus on high-performance logic so that you get the highest quality output in milliseconds.
+            Whether you are a developer compiling SQL creation schema into Mermaid layouts, or a traveler preparing passport-compliant crop dimensions, our interfaces are designed to minimize friction. We focus entirely on optimized backend logic to serve high-definition asset exports in milliseconds.
           </p>
         </section>
 
         {/* Sustainability Section (AdSense Friendly) */}
         <section className="space-y-4">
-          <h2 className="text-2xl font-semibold text-slate-800 dark:text-slate-200 border-l-4 border-blue-500 pl-4">How we keep the lights on</h2>
+          <h2 className="text-2xl font-semibold text-slate-800 dark:text-slate-200 border-l-4 border-blue-500 pl-4">How We Keep the Lights On</h2>
           <p>
-            Building and maintaining server infrastructure for high-speed processing isn&apos;t free. To keep these tools accessible to everyone for free, we rely on non-intrusive advertisements via Google AdSense. 
+            Securing and hosting scalable cloud networks to support fast client processes requires consistent infrastructure maintenance. To keep these premium utilities accessible for everyone at zero subscription cost, we display non-intrusive, curated ads via Google AdSense.
           </p>
           <p>
-            This allow us to cover our costs without ever resorting to selling your data or charging subscription fees. It&apos;s a transparent way to maintain a sustainable, free platform for the community.
+            This operational model allows us to easily offset running server expenses without ever resorting to paywalls, subscription models, or user data trade-offs. It is a highly ethical, transparent way to maintain a reliable platform for global digital communities.
           </p>
         </section>
 
         {/* Final CTA */}
         <section className="bg-slate-50 dark:bg-slate-900/50 p-10 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 text-center space-y-4">
-          <h3 className="text-xl font-bold text-foreground dark:text-slate-100">Help us improve</h3>
-          <p className="text-sm">
-            This platform is continuously growing based on your feedback. If you have a tool idea or a way to make our current ones better, please reach out. Thank you for trusting xdevutilities with your professional needs.
+          <h3 className="text-xl font-bold text-foreground dark:text-slate-100">Help Us Grow and Evolve</h3>
+          <p className="text-sm text-slate-600 dark:text-slate-400">
+            This platform is consistently optimized based on direct community suggestions. If you have a specific tool idea, visual feedback, or optimization strategies, please communicate with us. Thank you for choosing xdevutilities as your preferred technical helper.
           </p>
         </section>
       </div>
