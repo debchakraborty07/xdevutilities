@@ -1,41 +1,60 @@
-// src/app/forget-password/page.tsx
+// src/app/forgot-password/page.tsx
 
 "use client";
 
-import { useState } from "react";
-import { useAuth } from "@/context/auth-context";
+import React, { useState } from "react";
+import { sendPasswordResetEmail } from "firebase/auth"; // ফায়ারবেসের অফিশিয়াল ফ্রি রিসেট মেথড
+import { auth } from "@/lib/firebase"; // আপনার ইনিশিয়েট করা অথ অবজেক্ট
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { AlertCircle, Loader2, MailCheck, ArrowLeft, Terminal, ShieldCheck } from "lucide-react";
 
 export default function ForgotPasswordPage() {
-  const [identifier, setIdentifier] = useState("");
+  const [emailInput, setEmailInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [submitted, setSubmitted] = useState(false);
-  const { resetPassword } = useAuth();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // ম্যানুয়াল ভ্যালিডেশন: এটি থাকলে ব্রাউজার পপআপ আসবে না
-    if (!identifier.trim()) {
-      setError("Please enter your registered username or email.");
+    const email = emailInput.trim().toLowerCase();
+
+    // ১. খালি ইনপুট ভ্যালিডেশন
+    if (!email) {
+      setError("Please enter your registered email address.");
+      return;
+    }
+
+    // ২. ইমেইল ফরম্যাট ভ্যালিডেশন (Regex)
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setError("Please enter a valid email address (e.g., name@example.com).");
       return;
     }
 
     setLoading(true);
     setError(null);
+
     try {
-      let resetId = identifier.trim().toLowerCase();
-      if (!resetId.includes("@") && !resetId.includes(".com")) {
-        resetId = "@" + resetId;
-      }
-      await resetPassword(resetId);
+      // ফায়ারবেস এপিআই কল (সম্পূর্ণ জিরো-কস্ট মেইলিং সার্ভিস)
+      await sendPasswordResetEmail(auth, email);
       setSubmitted(true);
     } catch (err: any) {
-      setError("Identity not found in our records. Please check and try again.");
+      // console.error সরিয়ে সাধারণ warn করা হলো যাতে লোকালহোস্টে লাল ডেভ-স্ক্রিন পপআপ না করে
+      console.warn("Reset attempt code status:", err.code);
+      
+      // ফায়ারবেস স্ট্যান্ডার্ড এরর হ্যান্ডলিং
+      if (err.code === "auth/user-not-found") {
+        setError("This email address is not registered in our records. Please check and try again.");
+      } else if (err.code === "auth/invalid-email") {
+        setError("The email address format is invalid.");
+      } else if (err.code === "auth/too-many-requests") {
+        setError("Too many requests. Please wait a moment and try again.");
+      } else {
+        setError("Failed to send recovery link. Please verify your connection and try again.");
+      }
     } finally {
       setLoading(false);
     }
@@ -93,8 +112,9 @@ export default function ForgotPasswordPage() {
                 <div className="space-y-3">
                   <h2 className="text-3xl font-semibold text-foreground">Verify Mailbox</h2>
                   <p className="text-sm text-muted-foreground font-medium leading-relaxed">
-                    A secure reset link has been dispatched to the account associated with <span className="text-primary font-semibold italic">{identifier}</span>.
+                    A secure reset link has been dispatched to the account associated with <span className="text-primary font-semibold italic">{emailInput}</span>.
                   </p>
+                  <span className="text-sm font-medium">Check link in spam or junk folder.</span>
                 </div>
                 <Button asChild className="w-full h-14 rounded-2xl bg-secondary text-foreground hover:bg-border font-semibold transition-all">
                   <Link href="/login">Return to login</Link>
@@ -110,20 +130,23 @@ export default function ForgotPasswordPage() {
                   <div className="space-y-2">
                     <h2 className="text-3xl font-semibold text-foreground">Reset Password</h2>
                     <p className="text-sm text-muted-foreground font-medium leading-relaxed">
-                      Confirm your registered identity to receive a recovery link.
+                      Confirm your registered email to receive a recovery link.
                     </p>
                   </div>
                 </div>
 
-                {/* ফর্ম থেকে noValidate যোগ করা হয়েছে যাতে ব্রাউজার পপআপ না দেয় */}
+                {/* ফর্ম নো-ভ্যালিডেট করা হয়েছে যাতে কাস্টম এরর মেসেজ নিখুঁত দেখায় */}
                 <form onSubmit={handleSubmit} className="space-y-6" noValidate>
                   <div className="space-y-2">
-                    <label className="text-[11px] font-semibold text-muted-foreground opacity-60 ml-1">Identity</label>
+                    <label className="text-[11px] font-semibold text-muted-foreground opacity-60 ml-1">Email Address</label>
                     <Input 
-                      placeholder="Username or email address" 
-                      className={`h-14 rounded-2xl bg-secondary/40 border-border/50 text-foreground px-5 focus:ring-4 transition-all font-medium ${error ? 'ring-2 ring-red-500/20 border-red-500/50' : 'focus:ring-primary/5 focus:border-primary/40'}`}
-                      value={identifier}
-                      onChange={(e) => setIdentifier(e.target.value)}
+                      type="email"
+                      placeholder="Enter registered email address" 
+                      className={`h-14 rounded-2xl bg-secondary/40 border-border/50 text-foreground px-5 focus:ring-4 transition-all font-medium ${
+                        error ? 'ring-2 ring-red-500/20 border-red-500/50' : 'focus:ring-primary/5 focus:border-primary/40'
+                      }`}
+                      value={emailInput}
+                      onChange={(e) => setEmailInput(e.target.value)}
                     />
                   </div>
 
