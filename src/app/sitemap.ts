@@ -16,13 +16,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   );
 
-  // 2. Bolg post link
+  // 2. Blog post link
   const blogSlugs = [
     'pdf-metadata-privacy',
     'ats-resume-scanner-guide',
     'passport-photo-guide',
     'color-palette-theory',
-    'sql-mermaid-visualization'
+    'sql-mermaid-visualization',
+    'code-to-image-guide',      
+    'message-encryption-guide', 
+    'price-comparison-guide',   
+    'privacy-blur-guide',       
+    'safe-zone-checker-guide',  
   ];
 
   const blogRoutes = blogSlugs.map((slug) => ({
