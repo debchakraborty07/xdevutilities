@@ -21,7 +21,7 @@ export default function MetadataCleanerPage() {
 
       <div className="max-w-2xl mb-12">
         <div className="flex flex-wrap items-center gap-4 sm:gap-6 mb-4">
-          <h1 className="text-3xl sm:text-4xl font-semibold text-foreground dark:text-slate-100 tracking-tight">
+          <h1 className="text-3xl sm:text-4xl font-semibold text-foreground dark:text-slate-100 ">
             PDF Metadata Cleaner
           </h1>
 

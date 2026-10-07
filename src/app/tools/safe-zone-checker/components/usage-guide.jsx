@@ -9,7 +9,7 @@ export default function UsageGuide() {
       {/* Search Engine and AdSense Friendly Technical Design Article */}
       <article className="space-y-8">
         <header className="space-y-4">
-          <h2 className="text-3xl font-extrabold tracking-tight text-foreground dark:text-slate-100 sm:text-4xl">
+          <h2 className="text-3xl font-bold text-foreground dark:text-slate-100 sm:text-4xl">
             Understanding Social Media Display Rules
           </h2>
           <p className="text-xl text-muted-foreground leading-relaxed">

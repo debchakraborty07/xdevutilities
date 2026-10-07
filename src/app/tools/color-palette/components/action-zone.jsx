@@ -87,7 +87,7 @@ export default function ActionZone({ image, setImage, loading, onProcess }) {
               <span className="text-base font-bold text-foreground block">Upload Image</span>
               <span className="text-xs text-muted-foreground mt-1 block">to extract color palette</span>
             </div>
-            <p className="text-[10px] text-muted-foreground/60 font-bold tracking-tighter">
+            <p className="text-[10px] text-muted-foreground/60 font-bold er">
               JPG, PNG or WEBP (Max 5MB)
             </p>
           </div>

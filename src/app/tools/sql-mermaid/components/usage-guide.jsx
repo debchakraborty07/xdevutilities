@@ -9,7 +9,7 @@ export default function UsageGuide() {
       {/* AdSense এবং SEO-বান্ধব তথ্যবহুল ডাটাবেস আর্কিটেকচার ও কোড-অ্যাজ-ডায়াগ্রাম ব্লগ সেকশন */}
       <article className="space-y-8">
         <header className="space-y-4">
-          <h2 className="text-3xl font-extrabold tracking-tight text-foreground dark:text-slate-100 sm:text-4xl">
+          <h2 className="text-3xl font-bold text-foreground dark:text-slate-100 sm:text-4xl">
             Database Visualization Made Simple
           </h2>
           <p className="text-xl text-muted-foreground leading-relaxed">

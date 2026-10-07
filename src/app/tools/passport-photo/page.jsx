@@ -21,7 +21,7 @@ export default function PassportPhotoPage() {
         </Link>
 
         <div className="flex flex-wrap items-center gap-4 sm:gap-6 mb-4">
-          <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight text-foreground dark:text-slate-100">
+          <h1 className="text-3xl sm:text-4xl font-semibold  text-foreground dark:text-slate-100">
             Passport Photo Maker
           </h1>
           <div className="pt-1">

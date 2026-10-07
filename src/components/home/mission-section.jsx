@@ -4,61 +4,64 @@ import { ShieldCheck, Zap, MonitorSmartphone, Heart } from "lucide-react";
 
 export default function MissionSection() {
   return (
-    <section className="container mx-auto px-6 py-24 max-w-auto bg-background text-foreground">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <section className="container mx-auto px-6 py-20 max-w-7xl">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
         {/* Left Side: Human-centric Content */}
-        <div className="space-y-8">
-          <div className="space-y-4">
-            <h2 className="text-3xl sm:text-4xl font-semibold text-foreground dark:text-slate-100">
-              Utilities designed with <br />
-              <span className="text-blue-500">privacy and speed</span> in mind.
+        <div className="space-y-6">
+          <div className="space-y-3">
+            <h2 className="text-3xl sm:text-4xl font-bold  text-foreground">
+              Utilities engineered with <br />
+              <span className="text-blue-500">privacy and performance</span> in mind.
             </h2>
-            <p className="text-slate-600 dark:text-slate-400 text-lg font-medium leading-relaxed">
-              In an era of digital noise, finding a reliable workspace for small daily tasks shouldn’t feel like a chore. Xdevutilities was founded to bridge the gap between complex software and simple, effective web tools.
+            <p className="text-slate-600 dark:text-slate-400 text-base sm:text-lg font-medium leading-relaxed">
+              In an era of bloated software, finding a fast, dependable workspace for everyday technical tasks shouldn’t feel like a chore. Xdevutilities bridges the gap between heavy software and simple, distraction-free web tools.
             </p>
           </div>
 
-          <div className="prose dark:prose-invert text-muted-foreground dark:text-slate-400 font-medium">
+          <div className="space-y-4 text-sm sm:text-base text-muted-foreground font-medium leading-relaxed">
             <p>
-              Our philosophy is simple: <strong>Privacy by Default</strong>. Most online utilities process your sensitive data on their servers, often leaving a digital footprint behind. We changed the game by ensuring that 99% of our processing happens directly in your browser. Whether you are generating a secure password, analyzing code, or converting images, your data never leaves your device.
+              Our philosophy is simple: <strong>Zero Persistent Footprint</strong>. We prioritize local in-browser processing wherever technically possible, and strictly maintain stateless, RAM-only execution for our cloud converters. We never sell, log, or build behavioral profiles with your files or text.
             </p>
             <p>
-              We are committed to building an ecosystem that is easy to use, avoids complexity and is easy to understand. We believe each and every user will feel safe and comfortable using our tools.
+              We are dedicated to building a minimalist ecosystem that respects your workflow, eliminates unnecessary steps, and keeps your sensitive data uncompromised.
             </p>
           </div>
         </div>
 
         {/* Right Side: Visual Pillars */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {[
             {
               icon: ShieldCheck,
-              title: "Client-Side Secure",
-              desc: "Every calculation stays in your browser memory. We value your data as much as you do."
+              title: "Privacy First Architecture",
+              desc: "Designed with client-side execution and ephemeral zero-storage cloud processing pipelines."
             },
             {
               icon: Zap,
               title: "Instant Performance",
-              desc: "Engineered with optimized architecture to deliver results in milliseconds, even on slow networks."
+              desc: "Lightweight, optimized tool engines engineered to deliver instant results without bloated ads."
             },
             {
               icon: MonitorSmartphone,
-              title: "Universal Design",
-              desc: "From 4K monitors to small smartphone screens, enjoy a seamless edge-to-edge experience."
+              title: "Responsive Canvas",
+              desc: "From widescreen 4K displays to mobile viewports, enjoy a cohesive and predictable UI."
             },
             {
               icon: Heart,
-              title: "Community Driven",
-              desc: "Our roadmap is shaped by user feedback. We build what the community needs to stay efficient."
+              title: "Built for Developers",
+              desc: "Crafted to simplify repetitive tasks—from schema mapping and color analysis to image redaction."
             }
           ].map((pillar, i) => (
-            <div key={i} className="p-8 bg-slate-50 dark:bg-slate-900/50 rounded-[2.5rem] border border-border/60 hover:shadow-2xl hover:shadow-blue-500/5 transition-all duration-500">
-              <div className="w-10 h-10 bg-background rounded-xl flex items-center justify-center border border-border shadow-sm mb-4">
-                <pillar.icon size={18} className="text-blue-500" strokeWidth={1.5} />
+            <div
+              key={i}
+              className="p-6 sm:p-7 bg-card text-card-foreground rounded-3xl border border-border shadow-sm hover:border-primary/20 transition-all duration-300"
+            >
+              <div className="w-10 h-10 bg-muted rounded-xl flex items-center justify-center border border-border shadow-sm mb-4">
+                <pillar.icon size={18} className="text-blue-500" />
               </div>
-              <h3 className="text-base font-semibold text-foreground dark:text-slate-100 mb-2">{pillar.title}</h3>
-              <p className="text-xs text-muted-foreground dark:text-slate-400 leading-relaxed font-medium">{pillar.desc}</p>
+              <h3 className="text-base font-bold text-foreground mb-2">{pillar.title}</h3>
+              <p className="text-xs text-muted-foreground leading-relaxed">{pillar.desc}</p>
             </div>
           ))}
         </div>

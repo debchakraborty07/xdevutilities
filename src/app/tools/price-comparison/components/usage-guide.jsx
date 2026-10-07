@@ -9,7 +9,7 @@ export default function UsageGuide() {
       {/* AdSense এবং SEO-বান্ধব তথ্যবহুল স্মার্ট শপিং ও ইউনিট কস্ট ক্যালকুলেশন ব্লগ সেকশন */}
       <article className="space-y-8">
         <header className="space-y-4">
-          <h2 className="text-3xl font-extrabold tracking-tight text-foreground dark:text-slate-100 sm:text-4xl">
+          <h2 className="text-3xl font-bold text-foreground dark:text-slate-100 sm:text-4xl">
             Never pay more than the fair price
           </h2>
           <p className="text-xl text-muted-foreground leading-relaxed">

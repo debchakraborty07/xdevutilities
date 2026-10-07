@@ -34,7 +34,7 @@ export default function ResultDashboard({ results, jdProvided }) {
             {jdProvided ? "ATS Matching Accuracy" : "Resume Strength Score"}
           </p>
           <div className="flex items-baseline gap-2">
-            <span className="text-5xl font-extrabold text-foreground tracking-tight">{finalScore}</span>
+            <span className="text-5xl font-extrabold text-foreground ">{finalScore}</span>
             <span className="text-2xl text-muted-foreground font-medium">/100</span>
           </div>
           <div className="mt-6 flex items-center gap-2.5 text-sm">

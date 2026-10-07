@@ -183,7 +183,7 @@ export default function ActionZone() {
                 <div className="flex flex-col md:flex-row justify-between items-center gap-8">
                   <div className="space-y-2 text-center md:text-left">
                     <p className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">Estimated Fair Price</p>
-                    <h3 className="text-4xl font-bold tracking-tight text-foreground">
+                    <h3 className="text-4xl font-bold  text-foreground">
                       {result.fairPrice.toFixed(2)} /-
                     </h3>
                     <p className="text-sm text-muted-foreground font-medium">
@@ -194,10 +194,10 @@ export default function ActionZone() {
                   {/* Overcharge / Savings Alert */}
                   {actual.shopPrice && (
                     <div className={`p-6 rounded-[2rem] border min-w-[240px] text-center ${result.isOvercharged
-                        ? 'bg-rose-500/10 border-rose-500/20 text-rose-600 dark:text-rose-400'
-                        : result.diff === 0
-                          ? 'bg-blue-500/10 border-blue-500/20 text-blue-600 dark:text-blue-400'
-                          : 'bg-emerald-500/10 border-emerald-500/20 text-emerald-600 dark:text-emerald-400'
+                      ? 'bg-rose-500/10 border-rose-500/20 text-rose-600 dark:text-rose-400'
+                      : result.diff === 0
+                        ? 'bg-blue-500/10 border-blue-500/20 text-blue-600 dark:text-blue-400'
+                        : 'bg-emerald-500/10 border-emerald-500/20 text-emerald-600 dark:text-emerald-400'
                       }`}>
                       <p className="text-[10px] font-bold uppercase tracking-wider mb-1 opacity-70">Verdict</p>
                       <p className="text-lg font-bold">

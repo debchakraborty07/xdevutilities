@@ -41,7 +41,7 @@ export default function PriceComparisonPage() {
           <ArrowLeft size={16} /> Back to tools
         </Link>
         <div className="flex flex-wrap items-center gap-4 sm:gap-6 mb-4">
-          <h1 className="text-3xl sm:text-4xl font-semibold text-foreground dark:text-slate-100 tracking-tight">
+          <h1 className="text-3xl sm:text-4xl font-semibold text-foreground dark:text-slate-100 ">
             Fair Price Estimator
           </h1>
           <div className="pt-1">
