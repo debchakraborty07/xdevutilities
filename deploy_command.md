@@ -10,3 +10,8 @@ site:xdevutilities.com
 source venv/bin/activate
 
 firebase deploy --only functions:passport_photo_api
+
+
+git add .
+git commit -m "fix(navbar): resolve avatar dropdown crash and optimize auth modal"
+git push origin main

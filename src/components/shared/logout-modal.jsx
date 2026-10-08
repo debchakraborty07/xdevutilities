@@ -1,4 +1,4 @@
-// src\components\shared\logout-modal.jsx
+// src/components/shared/logout-modal.jsx
 
 "use client";
 
@@ -15,37 +15,40 @@ import { LogOut } from "lucide-react";
 export default function LogoutModal({ isOpen, onClose, onConfirm, loading }) {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-[400px] rounded-[32px] p-8 border-none shadow-2xl">
+      <DialogContent className="sm:max-w-[400px] rounded-3xl p-6 sm:p-8 bg-card text-card-foreground border border-border shadow-2xl">
         <div className="flex flex-col items-center text-center">
+
           {/* Icon Area */}
-          <div className="w-16 h-16 bg-rose-50 dark:bg-rose-900/20 text-rose-500 rounded-2xl flex items-center justify-center shadow-inner mb-6">
-            <LogOut size={32} />
+          <div className="w-13 h-13 bg-rose-500/10 text-rose-500 border border-rose-500/20 rounded-2xl flex items-center justify-center shadow-sm mb-5">
+            <LogOut size={26} />
           </div>
 
           {/* Header Area */}
-          <DialogHeader className="space-y-3">
-            <DialogTitle className="text-2xl font-bold text-foreground dark:text-slate-100">
-              Wait! Logging out?
+          <DialogHeader className="space-y-2">
+            <DialogTitle className="text-xl sm:text-2xl font-bold tracking-tight text-foreground">
+              Sign out of account?
             </DialogTitle>
-            <DialogDescription className="text-muted-foreground dark:text-slate-400 leading-relaxed text-sm">
-              Are you sure you want to sign out? You&apos;ll need to log in again to access your bookmarked tools and saved history.
+            <DialogDescription className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+              Are you sure you want to log out? You will need to log back in to access your bookmarked tools and saved preferences.
             </DialogDescription>
           </DialogHeader>
 
           {/* Action Buttons */}
-          <div className="flex flex-col w-full gap-3 mt-8">
+          <div className="flex flex-col w-full gap-2.5 mt-6">
             <Button
+              type="button"
               onClick={onConfirm}
               disabled={loading}
-              className="h-12 w-full rounded-2xl bg-rose-500 hover:bg-rose-600 text-white font-semibold shadow-lg transition-all active:scale-[0.98]"
+              className="h-11 w-full rounded-xl bg-rose-500 hover:bg-rose-600 text-white font-semibold shadow-sm transition-all active:scale-[0.99] disabled:opacity-50"
             >
               {loading ? "Signing out..." : "Yes, Sign me out"}
             </Button>
 
             <Button
+              type="button"
               onClick={onClose}
               variant="outline"
-              className="h-12 w-full rounded-2xl border-slate-200 dark:border-slate-800 font-semibold text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors"
+              className="h-11 w-full rounded-xl border-border bg-card hover:bg-muted font-semibold text-foreground transition-all"
             >
               No, stay logged in
             </Button>

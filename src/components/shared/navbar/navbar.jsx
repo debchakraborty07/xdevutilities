@@ -1,20 +1,20 @@
-//src/components/shared/navbar/navbar.jsx
+// src/components/shared/navbar/navbar.jsx
 
 "use client";
 
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import Logo from "./logo";
 import Toggle from "./toggle";
 import { ModeToggle } from "./mode-toggle";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/context/auth-context";
-import { User } from "lucide-react";
+import { User, LogOut, LayoutDashboard } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
@@ -24,6 +24,7 @@ import LogoutModal from "@/components/shared/logout-modal";
 export default function Navbar() {
   const { user, profile, logout, loading } = useAuth();
   const [showLogoutModal, setShowLogoutModal] = useState(false);
+  const router = useRouter();
 
   const handleLogoutConfirm = async () => {
     try {
@@ -35,72 +36,107 @@ export default function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-slate-100 dark:border-slate-800 bg-background text-foreground backdrop-blur-xl">
-      <nav className="container mx-auto flex h-16 items-center justify-between px-6">
+    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-xl">
+      <nav className="container mx-auto flex h-16 items-center justify-between px-6 max-w-7xl">
 
         {/* Left Section */}
         <div className="flex items-center gap-10">
           <Logo />
           <div className="hidden md:flex items-center gap-7">
-            <Link href="/tools" className="text-[14px] font-medium text-muted-foreground hover:text-foreground dark:text-slate-400 dark:hover:text-slate-100 transition-colors">
+            <Link
+              href="/tools"
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+            >
               Tools
             </Link>
-            <Link className="text-[14px] font-medium text-muted-foreground hover:text-foreground dark:text-slate-400 dark:hover:text-slate-100 transition-colors" href="/blog">Blog</Link>
-            <Link href="/resources/usage-guide" className="text-[14px] font-medium text-muted-foreground hover:text-foreground dark:text-slate-400 dark:hover:text-slate-100 transition-colors">
+            <Link
+              href="/blog"
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Blog
+            </Link>
+            <Link
+              href="/resources/usage-guide"
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+            >
               Guide
             </Link>
-
           </div>
         </div>
 
         {/* Right Section */}
-        <div className="flex items-center gap-2 md:gap-3">
+        <div className="flex items-center gap-3">
           <ModeToggle />
 
           {loading ? (
-            <div className="h-9 w-9 animate-pulse rounded-full bg-background text-foreground" />
+            <div className="h-9 w-9 animate-pulse rounded-full bg-muted border border-border" />
           ) : user ? (
             <div className="flex items-center gap-2">
               <div className="hidden md:block">
                 <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Avatar className="h-9 w-9 cursor-pointer border border-slate-200 dark:border-slate-800 hover:ring-4 hover:ring-slate-100 dark:hover:ring-slate-900 transition-all">
-                      <AvatarImage src={profile?.photoURL || ""} />
-                      <AvatarFallback className="bg-background text-foreground"><User size={18} /></AvatarFallback>
+                  {/* বাটনের কোনো নেস্টিং নেই, সম্পূর্ণ ক্লিন ট্রিগার */}
+                  <DropdownMenuTrigger className="rounded-full outline-none focus:ring-2 focus:ring-primary/20 border-0 bg-transparent p-0 cursor-pointer">
+                    <Avatar className="h-9 w-9 border border-border hover:opacity-90 transition-opacity">
+                      <AvatarImage src={profile?.photoURL || ""} alt={profile?.username || "User"} />
+                      <AvatarFallback className="bg-muted text-muted-foreground">
+                        <User size={18} />
+                      </AvatarFallback>
                     </Avatar>
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent align="end" className="w-56 mt-2 rounded-2xl p-2 shadow-xl border-slate-100 dark:border-slate-800">
-                    <DropdownMenuLabel className="font-normal px-2 py-1.5">
-                      <div className="flex flex-col space-y-1">
-                        <p className="text-sm font-bold text-foreground dark:text-white leading-none">@{profile?.username}</p>
-                        <p className="text-[11px] text-muted-foreground truncate mt-1">{user.email}</p>
-                      </div>
-                    </DropdownMenuLabel>
-                    <DropdownMenuSeparator className="my-1 bg-background text-foreground" />
-                    <DropdownMenuItem asChild className="rounded-lg cursor-pointer py-2 focus:bg-background text-foreground">
-                      <Link href="/dashboard">Dashboard</Link>
+
+                  <DropdownMenuContent
+                    align="end"
+                    className="w-56 mt-2 rounded-2xl p-2 shadow-xl bg-card text-card-foreground border border-border"
+                  >
+                    {/* MenuGroupContext ক্র্যাশ রোধে নিরাপদ ডিভ হেডার */}
+                    <div className="px-2.5 py-2">
+                      <p className="text-sm font-bold text-foreground leading-none">
+                        @{profile?.username || "developer"}
+                      </p>
+                      <p className="text-xs text-muted-foreground truncate mt-1">
+                        {user?.email || "Signed in"}
+                      </p>
+                    </div>
+
+                    <DropdownMenuSeparator className="my-1 bg-border" />
+
+                    {/* Dashboard Action */}
+                    <DropdownMenuItem
+                      onClick={() => router.push("/dashboard")}
+                      className="rounded-xl cursor-pointer py-2.5 px-2.5 text-sm font-medium focus:bg-muted text-foreground flex items-center gap-2"
+                    >
+                      <LayoutDashboard size={16} className="text-muted-foreground" />
+                      <span>Dashboard</span>
                     </DropdownMenuItem>
 
-                    {/* Logout Trigger */}
+                    {/* Logout Action */}
                     <DropdownMenuItem
                       onClick={() => setShowLogoutModal(true)}
-                      className="rounded-lg cursor-pointer py-2 text-rose-500 focus:text-rose-500 focus:bg-rose-950/30"
+                      className="rounded-xl cursor-pointer py-2.5 px-2.5 text-sm font-medium text-rose-500 focus:text-rose-600 focus:bg-rose-500/10 flex items-center gap-2"
                     >
-                      Log out
+                      <LogOut size={16} />
+                      <span>Log out</span>
                     </DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
               </div>
 
+              {/* Mobile Avatar Indicator */}
               <div className="md:hidden">
-                <Avatar className="h-9 w-9 border border-slate-200 dark:border-slate-800">
+                <Avatar className="h-8 w-8 border border-border">
                   <AvatarImage src={profile?.photoURL || ""} />
-                  <AvatarFallback><User size={16} /></AvatarFallback>
+                  <AvatarFallback className="bg-muted text-muted-foreground">
+                    <User size={15} />
+                  </AvatarFallback>
                 </Avatar>
               </div>
             </div>
           ) : (
-            <Button asChild variant="outline" className="hidden sm:flex h-9 rounded-full px-5 text-[13px] font-medium border-slate-200 dark:border-slate-800">
+            <Button
+              asChild
+              variant="outline"
+              className="hidden sm:flex h-9 rounded-full px-5 text-xs font-semibold border-border hover:bg-muted text-foreground"
+            >
               <Link href="/login">Log in</Link>
             </Button>
           )}
@@ -109,7 +145,7 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Reusable Logout Confirmation Modal */}
+      {/* Logout Confirmation Modal */}
       <LogoutModal
         isOpen={showLogoutModal}
         onClose={() => setShowLogoutModal(false)}
