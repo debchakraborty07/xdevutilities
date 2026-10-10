@@ -1,48 +1,63 @@
 // src/app/dashboard/components/tabs-settings.jsx
 
 "use client";
+
 import UsernameSettings from "../username-settings";
-import { Trash2, ShieldAlert } from "lucide-react";
-import { toast } from "sonner";
+import DeleteAccountModal from "./delete-account-modal"; // ✅ নতুন মডাল ইমপোর্ট
+import { Trash2, ShieldAlert, LifeBuoy } from "lucide-react";
+import Link from "next/link";
 
 export default function SettingsTab() {
-  const handleDeleteAccount = () => {
-    // এখানে ভবিষ্যতে আপনি কনফার্মেশন মডাল বা ডিলিট লজিক যোগ করবেন
-    toast.error("Account deletion is restricted for security. Please contact support.");
-  };
-
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 animate-in fade-in slide-in-from-bottom-3 duration-500">
-      <div className="md:col-span-2 space-y-8">
+    <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 items-start animate-in fade-in duration-300">
+
+      {/* বাম পাশ: মূল সেটিংস */}
+      <div className="lg:col-span-2 space-y-6 w-full">
         <UsernameSettings />
 
-        {/* Security Info Card */}
-        <div className="p-6 rounded-[32px] bg-background text-foreground border border-slate-100 dark:border-slate-800 flex items-start gap-4">
-          <div className="w-10 h-10 bg-background text-foreground rounded-xl flex items-center justify-center shadow-sm text-amber-500 shrink-0">
+        {/* Security & Cooldown Info Card */}
+        <div className="p-6 rounded-3xl bg-card text-card-foreground border border-border shadow-sm flex items-start gap-4">
+          <div className="w-10 h-10 bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20 rounded-2xl flex items-center justify-center shrink-0">
             <ShieldAlert size={20} />
           </div>
-          <div>
-            <h4 className="font-bold text-foreground dark:text-slate-100 text-sm">Security Tip</h4>
-            <p className="text-xs text-muted-foreground leading-relaxed mt-1">Changing your username is allowed once every 180 days. Choose wisely as it also updates your public profile link.</p>
+          <div className="space-y-1">
+            <h4 className="font-bold text-foreground text-sm">Security & Handle Policy</h4>
+            <p className="text-xs text-muted-foreground leading-relaxed">
+              Changing your username handle is restricted to once every 180 days to prevent identity squatting and preserve your permanent public links.
+            </p>
           </div>
         </div>
       </div>
 
-      <div className="p-8 rounded-[40px] border border-rose-100 dark:border-rose-900/20 bg-rose-50/20 dark:bg-rose-900/5 space-y-6 h-fit">
+      {/* ডান পাশ: ডেঞ্জার জোন (এখন সম্পূর্ণ কার্যকরী মডাল সহ) */}
+      <div className="lg:col-span-1 w-full p-6 sm:p-7 rounded-3xl border border-destructive/20 bg-destructive/5 space-y-6 shadow-sm">
         <div className="space-y-2">
-          <h4 className="text-rose-500 font-bold flex items-center gap-2 text-xs">
-            <Trash2 size={16} /> Danger zone
-          </h4>
-          <p className="text-[13px] font-bold text-foreground dark:text-slate-100">Delete Account</p>
-          <p className="text-xs text-muted-foreground leading-relaxed">Once deleted, your bookmarks and profile data cannot be recovered. Please proceed with caution.</p>
+          <div className="flex items-center gap-1.5 text-destructive text-xs font-bold uppercase tracking-wider">
+            <Trash2 size={15} />
+            <span>Danger Zone</span>
+          </div>
+          <h4 className="text-base font-bold text-foreground">Terminate Account</h4>
+          <p className="text-xs text-muted-foreground leading-relaxed font-normal">
+            Permanently erase your user profile, saved tool bookmarks, and workspace preferences. This action cannot be reversed.
+          </p>
         </div>
-        <button
-          onClick={handleDeleteAccount}
-          className="w-full py-4 bg-rose-500 text-white rounded-2xl text-xs font-bold hover:bg-rose-600 transition-all shadow-lg shadow-rose-500/20 active:scale-95"
-        >
-          Terminate Account
-        </button>
+
+        <div className="space-y-3 pt-2">
+          {/* পাসওয়ার্ড ভেরিফিকেশন ডিলিট মডাল */}
+          <DeleteAccountModal />
+
+          <div className="text-center">
+            <Link
+              href="/legal/contact"
+              className="inline-flex items-center gap-1 text-[11px] text-muted-foreground hover:text-foreground transition-colors font-medium"
+            >
+              <LifeBuoy size={12} />
+              <span>Need help? Contact support</span>
+            </Link>
+          </div>
+        </div>
       </div>
+
     </div>
   );
 }
