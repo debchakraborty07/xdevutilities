@@ -12,7 +12,7 @@ export default function DashboardGuard() {
                     <Lock size={26} />
                 </div>
                 <div className="space-y-1.5">
-                    <h1 className="text-2xl font-bold tracking-tight text-foreground">Workspace Protected</h1>
+                    <h1 className="text-2xl font-bold  text-foreground">Workspace Protected</h1>
                     <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
                         Please authenticate to access your saved tools, workspace metrics, and personal configuration.
                     </p>

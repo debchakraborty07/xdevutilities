@@ -25,7 +25,7 @@ export default function LogoutModal({ isOpen, onClose, onConfirm, loading }) {
 
           {/* Header Area */}
           <DialogHeader className="space-y-2">
-            <DialogTitle className="text-xl sm:text-2xl font-bold tracking-tight text-foreground">
+            <DialogTitle className="text-xl sm:text-2xl font-bold  text-foreground">
               Sign out of account?
             </DialogTitle>
             <DialogDescription className="text-xs sm:text-sm text-muted-foreground leading-relaxed">

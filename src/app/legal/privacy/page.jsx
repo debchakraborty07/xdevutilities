@@ -1,129 +1,239 @@
-// src/app/resources/legal/privacy/page.jsx
+// src/app/legal/privacy/page.jsx
 
-/* eslint-disable react/no-unescaped-entities */
 import React from "react";
+import Link from "next/link";
+import { ArrowLeft, ShieldCheck, Lock, Cookie, EyeOff, Mail } from "lucide-react";
 
 export const metadata = {
   title: "Privacy Policy | Data Protection & Ethics | xdevutilities",
-  description: "Learn how we protect your data at xdevutilities. Our privacy-first policy details our secure stateless processing, Firebase data ethics, and Google AdSense cookie usage.",
+  description:
+    "Learn how we protect your data at xdevutilities. Our privacy-first policy details our secure stateless RAM processing, client-side execution, Firebase data ethics, and Google AdSense cookie usage.",
   alternates: {
-    canonical: 'https://www.xdevutilities.com/legal/privacy',
+    canonical: "https://www.xdevutilities.com/legal/privacy",
   },
 };
 
 export default function PrivacyPage() {
   return (
-    <div className="container mx-auto px-6 py-20 max-w-4xl min-h-screen text-foreground bg-background">
-      <h1 className="text-4xl font-semibold text-foreground dark:text-slate-100 mb-4">Privacy Policy & Data Ethics</h1>
-      <p className="text-sm text-muted-foreground mb-12 italic">Last Updated: July 2026</p>
+    <div className="container mx-auto px-4 sm:px-6 py-16 sm:py-24 max-w-4xl min-h-screen text-foreground bg-background font-sans">
 
-      <div className="space-y-10 text-[15px] text-muted-foreground dark:text-slate-400 leading-relaxed">
+      {/* Back Link */}
+      <div className="mb-8">
+        <Link
+          href="/"
+          className="inline-flex items-center gap-1.5 text-xs font-semibold text-muted-foreground hover:text-primary transition-colors"
+        >
+          <ArrowLeft size={14} /> Back to utilities
+        </Link>
+      </div>
+
+      {/* Header */}
+      <header className="space-y-3 mb-12 border-b border-border pb-8">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+          <ShieldCheck size={13} />
+          <span>Zero-Persistent-Storage Architecture</span>
+        </div>
+
+        <h1 className="text-3xl sm:text-5xl font-bold text-foreground">
+          Privacy Policy & <span className="text-blue-500">Data Ethics</span>
+        </h1>
+        <p className="text-xs sm:text-sm text-muted-foreground font-medium">
+          Last Updated & Reviewed: October 2026 • Effective Date: Immediate
+        </p>
+      </header>
+
+      {/* Body Content */}
+      <div className="space-y-12 text-[15px] sm:text-[16px] text-muted-foreground leading-relaxed">
 
         {/* Section 1 */}
         <section className="space-y-3">
-          <h2 className="text-xl font-bold text-slate-800 dark:text-slate-200">1. Our Philosophy: Privacy by Default</h2>
+          <h2 className="text-xl font-bold text-foreground flex items-center gap-2">
+            1. Our Philosophy: Privacy by Default
+          </h2>
           <p>
-            At xdevutilities, we believe that your private data is exactly that—private. Unlike many online tools that silently harvest, analyze, and monetize user logs, our platform is engineered from the ground up to respect individual anonymity. We operate on a data-minimization principle: we never request personally identifiable information (PII) unless it is structurally necessary to support account-based services.
+            At xdevutilities, we believe that private data belongs exclusively to the user. Unlike conventional online tool portals that harvest, aggregate, and commercialize user activity logs, our platform is engineered from the ground up to respect individual anonymity.
+          </p>
+          <p>
+            We adhere strictly to the principle of <strong>data minimization</strong>: we never request or store Personally Identifiable Information (PII) unless you explicitly opt into authenticated dashboard features.
           </p>
         </section>
 
         {/* Section 2 */}
-        <section className="space-y-3 border-l-2 border-blue-500/20 pl-6">
-          <h2 className="text-xl font-bold text-slate-800 dark:text-slate-200">2. Stateless Data Processing for Utility Tools</h2>
+        <section className="space-y-3 p-6 sm:p-8 rounded-3xl bg-card border border-border shadow-sm">
+          <div className="flex items-center gap-2.5 text-foreground font-bold text-lg sm:text-xl">
+            <Lock size={20} className="text-blue-500" />
+            <h2>2. Stateless Data Processing for Utility Tools</h2>
+          </div>
           <p>
-            This stateless protocol is the core security architecture of xdevutilities. When you run highly interactive actions through our processing clients, such as our <strong>ATS Resume Scanner</strong>, <strong>PDF Metadata Cleaner</strong>, or <strong>Passport Photo Maker</strong>, the targeted resource payloads are streamed and parsed dynamically inside temporary volatile execution memory (RAM).
+            Stateless computation is the foundational pillar of xdevutilities. When you run operations across our suite—including the <strong>ATS Resume Scanner</strong>, <strong>PDF Metadata Cleaner</strong>, <strong>Passport Photo Maker</strong>, or <strong>SQL to Mermaid Visualizer</strong>:
           </p>
-          <p>
-            As soon as your browser download processes complete or you terminate your active window session, all binary footprints and residual temporary files are immediately and permanently flushed from our networks. We do not maintain historical logs or databases of your uploaded documents, images, or assets.
-          </p>
+          <ul className="list-disc pl-5 space-y-2 text-sm">
+            <li>
+              <strong>Temporary Volatile RAM Only:</strong> Server-processed payloads reside strictly in ephemeral volatile memory buffers during execution.
+            </li>
+            <li>
+              <strong>Instant Lifecycle Purge:</strong> As soon as the output is served to your browser or the network request terminates, memory allocations are wiped via garbage collection.
+            </li>
+            <li>
+              <strong>Client-Side Canvas Privacy:</strong> Visual redaction tools (such as Privacy Blur) process image buffers entirely inside your browser&apos;s native HTML5 Canvas context. Your source files never travel over the network.
+            </li>
+            <li>
+              <strong>No Secondary Archival:</strong> We maintain zero database pools, file buckets, or historical logs of your uploaded assets.
+            </li>
+          </ul>
         </section>
 
         {/* Section 3 */}
         <section className="space-y-3">
-          <h2 className="text-xl font-bold text-slate-800 dark:text-slate-200">3. Information We Collect and Firebase Authentication</h2>
+          <h2 className="text-xl font-bold text-foreground">
+            3. Information We Collect (Google Firebase Authentication)
+          </h2>
           <p>
-            For standard public guests, we collect no identity records. However, for users who choose to register for a professional profile dashboard, we secure and manage specific registration inputs using Google Firebase Authentication infrastructure.
+            Unregistered visitors can freely use our tools without submitting any personal credentials. For developers who optionally choose to create a workspace account, authentication is handled securely via <strong>Google Firebase Authentication</strong>.
           </p>
-          <p>
-            The scope of collected profile attributes is strictly limited to:
-          </p>
-          <ul className="list-disc pl-5 space-y-2">
-            <li><strong>Email Address:</strong> Utilized strictly for profile authentication, dynamic security audits, password resets, and account-related structural alerts.</li>
-            <li><strong>Security Credentials:</strong> Passwords are encrypted globally via Google&apos;s secured hashing and salting systems (using Scrypt/Bcrypt methodologies) to render them completely unreadable, even to our server administrators.</li>
+          <p>The scope of stored profile attributes is limited exclusively to:</p>
+          <ul className="list-disc pl-5 space-y-2 text-sm">
+            <li>
+              <strong>Email Address:</strong> Used solely for secure authentication tokens, system notifications, and password recovery.
+            </li>
+            <li>
+              <strong>Encrypted Credentials:</strong> Passwords are cryptographically salted and hashed via standard industry algorithms (such as Scrypt/Bcrypt) within Firebase infrastructure. We cannot view or access plaintext passwords.
+            </li>
           </ul>
         </section>
 
         {/* Section 4 */}
-        <section className="space-y-3">
-          <h2 className="text-xl font-bold text-slate-800 dark:text-slate-200">4. Cookies and Google AdSense Disclosure</h2>
+        <section className="space-y-3 p-6 sm:p-8 rounded-3xl bg-card border border-border shadow-sm">
+          <div className="flex items-center gap-2.5 text-foreground font-bold text-lg sm:text-xl">
+            <Cookie size={20} className="text-amber-500" />
+            <h2>4. Cookies & Google AdSense Advertising Disclosures</h2>
+          </div>
           <p>
-            To keep xdevutilities 100% free and open to developer communities worldwide, we partner with <strong>Google AdSense</strong> to display non-intrusive advertisements on our domain. Google operates as a third-party vendor and uses analytical cookies to track session interactions and serve relevant ads based on users&apos; visits to this site and other resources across the World Wide Web.
+            To keep xdevutilities accessible to developers worldwide without paywalls or subscriptions, we display contextual and interest-based advertisements through <strong>Google AdSense</strong>.
           </p>
           <p>
-            Google and its advertising partners utilize unique identifiers like the <strong>DoubleClick DART Cookie</strong> to map user interests. This behavioral profiling allows them to personalize ad placements.
+            Google, as a third-party vendor, uses cookies to serve ads on our site. Google&apos;s use of advertising cookies enables it and its partners to serve ads to users based on their visits to xdevutilities and other websites across the Internet:
           </p>
-          <ul className="list-disc pl-5 space-y-2">
-            <li>You can manage or opt-out of personalized interest-based advertising by adjusting your Google Ads preferences here: <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">https://adssettings.google.com</a></li>
-            <li>Alternatively, you can opt-out of third-party cookie usage for personalized advertising globally by visiting the Network Advertising Initiative: <a href="https://optout.networkadvertising.org" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">https://optout.networkadvertising.org</a></li>
+          <ul className="list-disc pl-5 space-y-2 text-sm">
+            <li>
+              <strong>Personalized Advertising Opt-Out:</strong> Users may opt out of personalized advertising by visiting Google&apos;s Ads Settings at{" "}
+              <a
+                href="https://adssettings.google.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 underline underline-offset-2 hover:text-blue-600"
+              >
+                https://adssettings.google.com
+              </a>.
+            </li>
+            <li>
+              <strong>Universal Opt-Out:</strong> Alternatively, you can opt out of a third-party vendor&apos;s use of cookies for personalized advertising by visiting the Network Advertising Initiative opt-out page at{" "}
+              <a
+                href="https://optout.networkadvertising.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 underline underline-offset-2 hover:text-blue-600"
+              >
+                https://optout.networkadvertising.org
+              </a>{" "}
+              or{" "}
+              <a
+                href="https://www.aboutads.info/choices"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 underline underline-offset-2 hover:text-blue-600"
+              >
+                https://www.aboutads.info/choices
+              </a>.
+            </li>
           </ul>
         </section>
 
         {/* Section 5 - GDPR Compliance */}
         <section className="space-y-3">
-          <h2 className="text-xl font-bold text-slate-800 dark:text-slate-200">5. GDPR Data Protection Rights (EEA Visitors)</h2>
+          <h2 className="text-xl font-bold text-foreground">
+            5. GDPR Data Protection Rights (EEA & UK Visitors)
+          </h2>
           <p>
-            We are fully committed to ensuring that visitors from the European Economic Area (EEA) understand their data rights under the General Data Protection Regulation (GDPR). Every registered or public guest is entitled to the following liberties:
+            In compliance with the General Data Protection Regulation (GDPR), European Economic Area and UK visitors are entitled to specific statutory rights:
           </p>
-          <ul className="list-disc pl-5 space-y-2">
-            <li><strong>The Right to Access:</strong> You have the right to request verified copies of your personal profile information.</li>
-            <li><strong>The Right to Rectification:</strong> You can request that we update or correct any account information you believe is inaccurate.</li>
-            <li><strong>The Right to Erasure (Right to be Forgotten):</strong> You have the right to request that we delete your registered account profile and erase your email from our system databases permanently.</li>
-            <li><strong>The Right to Restrict Processing:</strong> You have the right to request that we temporarily or permanently restrict the processing of your personal information.</li>
+          <ul className="list-disc pl-5 space-y-2 text-sm">
+            <li><strong>Right to Access:</strong> You can request verification of whether we hold any personal account records.</li>
+            <li><strong>Right to Rectification:</strong> You can request corrections to your registered workspace profile information.</li>
+            <li><strong>Right to Erasure (&quot;Right to be Forgotten&quot;):</strong> You can request immediate, atomic deletion of your Firebase account and associated email identifiers via our account dashboard or support desk.</li>
+            <li><strong>Right to Data Portability:</strong> You can request an export of your saved account parameters in a structured, machine-readable format.</li>
           </ul>
         </section>
 
         {/* Section 6 - CCPA Compliance */}
         <section className="space-y-3">
-          <h2 className="text-xl font-bold text-slate-800 dark:text-slate-200">6. CCPA/CPRA Privacy Rights (California Residents)</h2>
+          <h2 className="text-xl font-bold text-foreground">
+            6. California Consumer Privacy Act (CCPA / CPRA)
+          </h2>
           <p>
-            Under the California Consumer Privacy Act (CCPA), California consumers have specific rights regarding their personal data. At xdevutilities, we uphold these rules diligently:
+            For residents of California, xdevutilities complies with all consumer privacy provisions:
           </p>
-          <ul className="list-disc pl-5 space-y-2">
-            <li><strong>No Sale of Data:</strong> We explicitly declare that we <strong>do not sell, trade, or monetize your personal information</strong> with any third-party marketing entities, databases, or aggregators.</li>
-            <li><strong>Right to Know:</strong> You can request disclosure regarding the specific categories of data we collect and maintain in our secure authentication server.</li>
-            <li><strong>Right to Delete:</strong> You can request deletion of all collected email parameters at any time.</li>
+          <ul className="list-disc pl-5 space-y-2 text-sm">
+            <li><strong>No Sale of Data:</strong> We explicitly declare that we <strong>do not sell, monetize, or rent your personal information</strong> to data brokers, advertising aggregators, or marketing firms.</li>
+            <li><strong>Non-Discrimination:</strong> Exercising your privacy rights will never result in degraded access, throttled processing speeds, or altered platform features.</li>
           </ul>
         </section>
 
         {/* Section 7 - COPPA Compliance */}
         <section className="space-y-3">
-          <h2 className="text-xl font-bold text-slate-800 dark:text-slate-200">7. Children&apos;s Information (COPPA Compliance)</h2>
+          <div className="flex items-center gap-2 text-foreground font-bold text-lg sm:text-xl">
+            <EyeOff size={18} className="text-indigo-500" />
+            <h2>7. Children&apos;s Privacy (COPPA Compliance)</h2>
+          </div>
           <p>
-            Another pillar of our online data ethics is protecting young children using web channels. We strongly encourage parents and guardians to observe and guide their children&apos;s online actions.
-          </p>
-          <p>
-            Xdevutilities does not knowingly collect any Personally Identifiable Information from children under the age of 13. If you believe your child has registered an email on our site, please contact us immediately, and we will make every effort to delete all traces of such registration databases from our records.
+            xdevutilities is designed as a productivity workbench for developers and creators. We do not knowingly collect or solicit any Personally Identifiable Information from children under the age of 13 under the Children&apos;s Online Privacy Protection Act (COPPA). If you believe a minor has registered an email on our site, please notify us immediately for swift record removal.
           </p>
         </section>
 
         {/* Section 8 */}
         <section className="space-y-3">
-          <h2 className="text-xl font-bold text-slate-800 dark:text-slate-200">8. External Content Boundaries</h2>
+          <h2 className="text-xl font-bold text-foreground">
+            8. External Links & Third-Party Boundaries
+          </h2>
           <p>
-            Our web pages include hyperlinks to external documentation, blogs, or official portals. Please note that xdevutilities has no structural control over the content or privacy policies of third-party domains. We advise our users to carefully read the independent privacy statements of any external domain that collects personal metadata.
+            Our guides and technical documentation may contain links to external sites (such as GitHub, technical documentation, or standards bodies). We do not operate or control third-party privacy practices and recommend reading the respective policies of any site you visit.
           </p>
         </section>
 
-        {/* Section 9 */}
-        <section className="p-6 bg-slate-50 dark:bg-slate-900/50 rounded-2xl border border-border">
-          <h2 className="text-xl font-bold text-slate-800 dark:text-slate-200 mb-2">9. Consent, Integration, & Contacts</h2>
-          <p className="italic mb-4 text-sm leading-relaxed">
-            By utilizing the utilities on xdevutilities, you hereby acknowledge and consent to our strict Privacy Policy and agree to its regulatory terms.
+        {/* Section 9 - Direct Contact & Verification */}
+        <section className="p-6 sm:p-8 bg-muted/40 rounded-3xl border border-border space-y-3">
+          <div className="flex items-center gap-2 text-foreground font-bold text-lg">
+            <Mail size={18} className="text-primary" />
+            <h2>9. Privacy Inquiries & Exercising Rights</h2>
+          </div>
+          <p className="text-sm leading-relaxed">
+            By utilizing xdevutilities, you acknowledge and agree to the data minimization standards outlined in this Privacy Policy.
           </p>
-          <p className="text-sm">
-            To ask questions, request account removal, or assert your GDPR/CCPA data rights, please contact our support infrastructure directly at <a href="mailto:support@xdevutilities.com" className="text-blue-500 font-semibold hover:underline">support@xdevutilities.com</a> or visit our designated online contact gateway.
+          <p className="text-sm leading-relaxed">
+            To assert your GDPR/CCPA rights, request account termination, or ask technical questions regarding our stateless memory execution, reach out to <strong>Debojyoti Chakraborty</strong> via our official channels:
           </p>
+          <div className="pt-2 flex flex-wrap gap-4 text-xs font-semibold">
+            <Link
+              href="/legal/contact"
+              className="text-primary hover:underline underline-offset-4"
+            >
+              Open Support Desk Ticket →
+            </Link>
+            <a
+              href="mailto:iamdebojyoti.1990@gmail.com"
+              className="text-primary hover:underline underline-offset-4"
+            >
+              xdevutilities team
+            </a>
+            <Link
+              href="/legal/terms"
+              className="text-muted-foreground hover:text-foreground"
+            >
+              Review Terms of Service
+            </Link>
+          </div>
         </section>
+
       </div>
     </div>
   );

@@ -29,7 +29,7 @@ export default function AuthModal({
             <Bookmark size={24} className="fill-primary/20" />
           </div>
 
-          <DialogTitle className="text-xl sm:text-2xl font-bold tracking-tight text-foreground">
+          <DialogTitle className="text-xl sm:text-2xl font-bold  text-foreground">
             {title}
           </DialogTitle>
           <DialogDescription className="text-xs sm:text-sm text-muted-foreground leading-relaxed font-normal max-w-[300px]">

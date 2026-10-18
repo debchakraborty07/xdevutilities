@@ -81,7 +81,7 @@ export default function EditProfileModal() {
 
       <DialogContent className="w-[92vw] sm:max-w-[400px] max-h-[90vh] overflow-y-auto rounded-3xl bg-card text-card-foreground border border-border p-6 sm:p-7 shadow-2xl">
         <DialogHeader className="space-y-1">
-          <DialogTitle className="text-xl font-bold tracking-tight text-foreground">
+          <DialogTitle className="text-xl font-bold  text-foreground">
             Edit Profile
           </DialogTitle>
           <p className="text-xs text-muted-foreground">

@@ -107,7 +107,7 @@ export default function DeleteAccountModal() {
                         <Trash2 size={22} />
                     </div>
                     <div>
-                        <DialogTitle className="text-xl font-bold tracking-tight text-foreground">
+                        <DialogTitle className="text-xl font-bold  text-foreground">
                             Confirm Account Termination
                         </DialogTitle>
                         <p className="text-xs text-muted-foreground leading-relaxed mt-1">

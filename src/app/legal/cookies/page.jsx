@@ -1,84 +1,200 @@
-// src/app/resources/legal/cookies/page.jsx
+// src/app/legal/cookies/page.jsx
 
-/* eslint-disable react/no-unescaped-entities */
 import React from "react";
+import Link from "next/link";
+import {
+  ArrowLeft,
+  Cookie,
+  ShieldCheck,
+  SlidersHorizontal,
+  ExternalLink,
+  Laptop,
+  CheckCircle2,
+  Lock,
+} from "lucide-react";
 
 export const metadata = {
-  title: "Cookie Policy | Transparency & Usage | xdevutilities",
-  description: "Learn how xdevutilities uses cookies and web storage to improve user experience, manage themes, and serve advertisements safely.",
-  alternates: { canonical: 'https://www.xdevutilities.com/legal/cookies' },
+  title: "Cookie Policy | Transparency & Storage Standards | xdevutilities",
+  description:
+    "Learn how xdevutilities uses essential client-side web storage and Google AdSense advertising cookies transparently without ever persisting user document payloads.",
+  alternates: {
+    canonical: "https://www.xdevutilities.com/legal/cookies",
+  },
 };
 
 export default function CookiePolicyPage() {
   return (
-    <div className="container mx-auto px-6 py-20 max-w-4xl min-h-screen text-foreground bg-background">
-      <h1 className="text-4xl font-semibold text-foreground dark:text-slate-100 mb-4">Cookie Policy</h1>
-      <p className="text-sm text-muted-foreground mb-12 italic">Last Updated: July 2026</p>
+    <div className="container mx-auto px-4 sm:px-6 py-16 sm:py-24 max-w-4xl min-h-screen text-foreground bg-background font-sans">
 
-      <div className="space-y-10 text-[15px] text-muted-foreground dark:text-slate-400 leading-relaxed">
-        <p>
-          We believe in a web space that is fast, secure, and completely transparent. While xdevutilities is fundamentally built on a <strong>stateless architecture</strong> to safeguard your individual privacy, we utilize a minimal amount of browser storage data to ensure the platform renders properly, maintains configurations, and remains completely free for everyone.
+      {/* Back Link */}
+      <div className="mb-8">
+        <Link
+          href="/"
+          className="inline-flex items-center gap-1.5 text-xs font-semibold text-muted-foreground hover:text-primary transition-colors"
+        >
+          <ArrowLeft size={14} /> Back to utilities
+        </Link>
+      </div>
+
+      {/* Header */}
+      <header className="space-y-3 mb-12 border-b border-border pb-8">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20">
+          <Cookie size={13} />
+          <span>Storage & Consent Transparency</span>
+        </div>
+
+        <h1 className="text-3xl sm:text-5xl font-bold text-foreground">
+          Cookie & <span className="text-blue-500">Storage Policy</span>
+        </h1>
+        <p className="text-xs sm:text-sm text-muted-foreground font-medium">
+          Last Updated: October 2026 • Policy Version: 2026.2
+        </p>
+      </header>
+
+      {/* Content Body */}
+      <div className="space-y-12 text-[15px] sm:text-[16px] text-muted-foreground leading-relaxed">
+
+        <p className="text-base leading-relaxed">
+          At <strong className="text-foreground">xdevutilities</strong>, we believe web tools should operate with extreme privacy and zero hidden surveillance. Because our suite is engineered around a <strong>stateless execution model</strong>, we do not build user behavioral profiles from your uploaded files. However, minimal browser-level storage and third-party advertising cookies are used to keep our platform responsive, preference-aware, and completely free to access.
         </p>
 
         {/* Section 1 */}
-        <section className="space-y-4">
-          <h2 className="text-xl font-bold text-slate-800 dark:text-slate-200 border-l-4 border-blue-500 pl-4">1. What are Cookies and Web Storage?</h2>
+        <section className="space-y-3">
+          <h2 className="text-xl font-bold text-foreground border-l-4 border-blue-500 pl-4">
+            1. What Are Cookies and Client Web Storage?
+          </h2>
           <p>
-            Cookies are small text files stored on your machine or mobile device by your web browser. They allow applications to &quot;remember&quot; certain operational parameters during and across web sessions to make your browsing experience smoother.
+            <strong>Cookies</strong> are small alphanumeric text snippets stored in your browser by websites you visit. They enable platforms to remember session states and facilitate secure advertising interactions.
           </p>
           <p>
-            In addition to cookies, we use <strong>HTML5 Local Storage</strong> (Web Storage). Unlike cookies, Web Storage does not transmit data automatically to remote servers, making it a highly secure and private way to save personal settings locally on your client machine.
+            In addition to standard cookies, xdevutilities utilizes <strong>HTML5 Web Storage (localStorage)</strong>. Unlike cookies, information stored in localStorage remains exclusively inside your device&apos;s browser environment and is <em>never</em> automatically transmitted to our servers during HTTP network requests.
           </p>
         </section>
 
         {/* Section 2 */}
         <section className="space-y-4">
-          <h2 className="text-xl font-bold text-slate-800 dark:text-slate-200 border-l-4 border-blue-500 pl-4">2. Types of Storage and Cookies We Use</h2>
-          <ul className="space-y-6">
-            <li className="p-5 bg-slate-50 dark:bg-slate-900/50 rounded-2xl border border-border">
-              <strong className="text-foreground dark:text-slate-100 block mb-1">A. Essential and Preference Web Storage</strong>
-              We utilize HTML5 Local Storage strictly to remember your custom aesthetic preferences, such as Dark Mode or Light Mode toggles. This ensures that every time you return to xdevutilities, the interface maps your preferred color values instantly, without requiring repetitive manual setting updates.
-            </li>
+          <h2 className="text-xl font-bold text-foreground border-l-4 border-blue-500 pl-4">
+            2. Categories of Storage We Deploy
+          </h2>
 
-            <li className="p-5 bg-slate-50 dark:bg-slate-900/50 rounded-2xl border border-border">
-              <strong className="text-foreground dark:text-slate-100 block mb-1">B. Advertising Cookies (Google AdSense)</strong>
-              To keep our high-performance developer utilities completely free without charging subscription fees or requiring paywalls, we partner with <strong>Google AdSense</strong>. Google, operating as a third-party vendor, uses tracking cookies to analyze interests and serve ads to users based on their visits to our domain and other resources across the Internet.
-            </li>
+          <div className="space-y-4 pt-1 not-prose">
+            {/* Category A */}
+            <div className="p-6 rounded-3xl bg-card border border-border shadow-sm space-y-2">
+              <div className="flex items-center gap-2 text-foreground font-bold text-base">
+                <Laptop size={18} className="text-blue-500" />
+                <h3>A. Essential Functional Web Storage (Client-Side Only)</h3>
+              </div>
+              <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                We store basic interface parameters directly in your browser&apos;s <code>localStorage</code>—primarily your active color scheme toggle (Dark Mode vs. Light Mode) and temporary UI preferences. This ensures your aesthetic preference is instantly applied when navigating between utility pages without annoying screen flickers.
+              </p>
+              <div className="inline-flex items-center gap-1.5 text-xs text-emerald-600 dark:text-emerald-400 font-semibold pt-1">
+                <CheckCircle2 size={13} />
+                <span>Zero server transmission • 100% on your machine</span>
+              </div>
+            </div>
 
-            <li className="p-5 bg-slate-50 dark:bg-slate-900/50 rounded-2xl border border-border">
-              <strong className="text-foreground dark:text-slate-100 block mb-1">C. Google DoubleClick Cookies</strong>
-              Google and its certified partners utilize the DoubleClick cookie on our site to serve personalized, behavior-targeted advertisements. We explicitly declare that <strong>no documents, images, or assets processed in our stateless utilities (such as your resumes, photos, or database tables) are ever shared with or analyzed by these marketing networks</strong>. The cookies only trace general browsing behavior and session paths.
-            </li>
-          </ul>
+            {/* Category B */}
+            <div className="p-6 rounded-3xl bg-card border border-border shadow-sm space-y-2">
+              <div className="flex items-center gap-2 text-foreground font-bold text-base">
+                <SlidersHorizontal size={18} className="text-amber-500" />
+                <h3>B. Advertising Cookies (Google AdSense)</h3>
+              </div>
+              <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                To sustain cloud hosting servers, bandwidth, and computational RAM execution without charging subscriptions or paywalls, we partner with <strong>Google AdSense</strong>. Google and its certified advertising technology partners deploy advertising cookies to measure ad performance, prevent repetitive ad impressions, and display relevant sponsorships based on visits to xdevutilities and other websites across the web.
+              </p>
+              <div className="inline-flex items-center gap-1.5 text-xs text-primary font-semibold pt-1">
+                <Lock size={13} />
+                <span>Document payloads (PDFs, CVs, photos) are never exposed to ad cookies</span>
+              </div>
+            </div>
+          </div>
         </section>
 
-        {/* Section 3 */}
-        <section className="space-y-4">
-          <h2 className="text-xl font-bold text-slate-800 dark:text-slate-200 border-l-4 border-blue-500 pl-4">3. Your Choices and Browser-Specific Controls</h2>
-          <p>
-            We respect your digital boundaries. You can choose to manage, limit, or completely disable third-party cookies by adjusting your individual browser configuration panels. Please note that blocking all cookies may impact your user session states or prevent certain preference configurations from rendering correctly.
+        {/* Section 3 - Zero File Tracking Guarantee */}
+        <section className="p-6 sm:p-8 rounded-3xl bg-emerald-500/5 border border-emerald-500/20 space-y-3">
+          <div className="flex items-center gap-2 text-foreground font-bold text-lg">
+            <ShieldCheck size={20} className="text-emerald-500" />
+            <h2>3. Our Zero File Tracking Guarantee</h2>
+          </div>
+          <p className="text-sm leading-relaxed">
+            We explicitly declare that <strong>no user-uploaded documents, resumes, images, or SQL schemas are ever linked to advertising cookies or behavioral profiles</strong>.
           </p>
-          <p>
-            To manage cookie behaviors in different web browsers, please consult the official support channels below:
-          </p>
-          <ul className="list-disc pl-5 space-y-2">
-            <li><strong>Google Chrome:</strong> <a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">Manage Cookies and Site Data</a></li>
-            <li><strong>Apple Safari:</strong> <a href="https://support.apple.com/guide/safari/manage-cookies-sfri11471" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">Web Settings & Security</a></li>
-            <li><strong>Mozilla Firefox:</strong> <a href="https://support.mozilla.org/kb/enhanced-tracking-protection-firefox-desktop" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">Blocking & Tracking Preferences</a></li>
-            <li><strong>Microsoft Edge:</strong> <a href="https://support.microsoft.com/microsoft-edge/delete-and-manage-cookies-in-microsoft-edge-168dab11-0753-243d-7c16-ade5947764d5" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">Edge Storage Controls</a></li>
-          </ul>
-          <p className="mt-4">
-            If you wish to opt-out of personalized behavioral ads served by Google directly, please visit the
-            <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer" className="text-blue-500 font-bold hover:underline ml-1">Google Ads Settings</a> page.
+          <p className="text-sm leading-relaxed">
+            When you process assets using our ATS Resume Scanner or PDF Metadata Cleaner, the data executes within stateless volatile RAM buffers and is completely purged upon completion. Ad cookies have zero structural access to the contents of your files.
           </p>
         </section>
 
         {/* Section 4 */}
-        <section className="pt-8 border-t border-slate-100 dark:border-slate-800">
-          <p className="italic">
-            For more details on our zero-footprint data standards and user rights, please review our comprehensive <a href="/legal/privacy" className="text-blue-500 hover:underline">Privacy Policy</a>. If you have any technical questions regarding our cookie utilization, feel free to inquire via our <a href="/legal/contact" className="text-blue-500 hover:underline">Contact Page</a>.
+        <section className="space-y-4">
+          <h2 className="text-xl font-bold text-foreground border-l-4 border-blue-500 pl-4">
+            4. Managing Your Cookie Choices & Opt-Out Controls
+          </h2>
+          <p>
+            You have the right to accept, limit, or refuse cookies. You can exercise your preferences directly through several independent avenues:
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 not-prose pt-2 text-xs">
+            <div className="p-4 rounded-2xl bg-card border border-border space-y-2">
+              <strong className="text-foreground text-sm block">Google Ad Settings</strong>
+              <p className="text-muted-foreground leading-relaxed">
+                Opt out of personalized interest-based ads served by Google across the Internet:
+              </p>
+              <a
+                href="https://adssettings.google.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-primary font-semibold hover:underline"
+              >
+                <span>Google Ads Settings</span>
+                <ExternalLink size={12} />
+              </a>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-card border border-border space-y-2">
+              <strong className="text-foreground text-sm block">Industry-Wide Opt-Out</strong>
+              <p className="text-muted-foreground leading-relaxed">
+                Opt out of multiple third-party advertising networks simultaneously via the DAA:
+              </p>
+              <a
+                href="https://optout.aboutads.info"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-primary font-semibold hover:underline"
+              >
+                <span>Digital Advertising Alliance (DAA)</span>
+                <ExternalLink size={12} />
+              </a>
+            </div>
+          </div>
+
+          <p className="text-sm pt-2">
+            You can also adjust cookie preferences directly inside your web browser settings (Chrome, Safari, Firefox, or Edge). Note that clearing all cookies will reset your light/dark theme preference to default.
           </p>
         </section>
+
+        {/* Section 5 */}
+        <section className="p-6 sm:p-8 bg-muted/40 rounded-3xl border border-border space-y-3">
+          <h2 className="text-lg font-bold text-foreground">
+            5. Legal Governance & Inquiries
+          </h2>
+          <p className="text-sm leading-relaxed">
+            For deeper architectural details regarding our data governance, visit our full{" "}
+            <Link href="/legal/privacy" className="text-primary hover:underline font-semibold">
+              Privacy Policy
+            </Link>{" "}
+            and{" "}
+            <Link href="/legal/terms" className="text-primary hover:underline font-semibold">
+              Terms of Service
+            </Link>.
+          </p>
+          <p className="text-sm leading-relaxed">
+            If you have technical questions regarding our cookie and client storage implementation, connect directly through our{" "}
+            <Link href="/legal/contact" className="text-primary hover:underline font-semibold">
+              Support Desk
+            </Link>.
+          </p>
+        </section>
+
       </div>
     </div>
   );

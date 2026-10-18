@@ -119,7 +119,7 @@ export default async function PublicProfilePage({ params }) {
                             {/* নাম, হ্যান্ডেল ও মেটা */}
                             <div className="space-y-1.5 pt-2 sm:pt-4">
                                 <div className="flex items-center justify-center sm:justify-start gap-2 flex-wrap">
-                                    <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground">
+                                    <h1 className="text-2xl sm:text-3xl font-bold text-foreground">
                                         {profile?.displayName || `@${profile?.username}`}
                                     </h1>
 
