@@ -13,6 +13,6 @@ firebase deploy --only functions:passport_photo_api
 
 
 git add .
-git commit -m "fix(navbar): resolve avatar dropdown crash and optimize auth modal"
+git commit -m "blog optimised"
 git push origin main
-vercel --prod
+npx vercel --prod
